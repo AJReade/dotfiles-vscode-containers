@@ -118,9 +118,6 @@ alias npmpackages="npm ls --all --depth=1 --prefix ./assets"
 alias the-garage="Documents/the-garage/"
 alias npmkill="npx npkill"
 
-#asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
 # ngrok
  if command -v ngrok &>/dev/null; then
      eval "$(ngrok completion)"
