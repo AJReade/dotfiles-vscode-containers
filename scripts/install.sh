@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Alex's dotfile script running now..."
+
 # Ensure we are in the dotfiles directory (parent of this script)
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$DOTFILES_DIR"
