@@ -7,8 +7,8 @@ cd "$DOTFILES_DIR"
 
 # Install necessary packages for Alpine Linux using apk
 echo "Installing necessary packages for Alpine Linux..."
-sudo apk update
-sudo apk add fd fzf p7zip stow busybox-extras tree
+sudo apt update
+sudo apt add fd fzf p7zip stow busybox-extras tree
 
 # List of files to symlink
 FILES=(".fzf.zsh" ".gitconfig" ".vimrc" ".zshrc")
