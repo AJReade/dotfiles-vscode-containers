@@ -6,24 +6,32 @@ echo "Alex's dotfile script running now..."
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$DOTFILES_DIR"
 
-# Update and install necessary Linux packages using apt
-echo "Updating package list and installing necessary Linux packages..."
-sudo apt update
+# Detect OS package manager
+if command -v apt &> /dev/null; then
+    PM="apt"
+elif command -v brew &> /dev/null; then
+    PM="brew"
+elif command -v dnf &> /dev/null; then
+    PM="dnf"
+elif command -v pacman &> /dev/null; then
+    PM="pacman"
+else
+    echo "No supported package manager found (apt, brew, dnf, pacman). Please install packages manually."
+    exit 1
+fi
 
-# List of packages to install
-PACKAGES=(
-    fd-find
-    fzf
-    p7zip-full
-    stow
-    telnet
-    tree
-)
-
-# Install packages
-for pkg in "${PACKAGES[@]}"; do
-    sudo apt install -y "$pkg"
-done
+# Install necessary packages
+echo "Using package manager: $PM"
+if [ "$PM" == "apt" ]; then
+    sudo apt update
+    sudo apt install -y fd-find fzf p7zip-full stow telnet tree
+elif [ "$PM" == "brew" ]; then
+    brew install fd fzf p7zip stow telnet tree
+elif [ "$PM" == "dnf" ]; then
+    sudo dnf install -y fd-find fzf p7zip stow telnet tree
+elif [ "$PM" == "pacman" ]; then
+    sudo pacman -Syu --noconfirm fd fzf p7zip stow inetutils telnet tree
+fi
 
 # List of files to symlink
 FILES=(".fzf.zsh" ".gitconfig" ".vimrc" ".zshrc")
@@ -44,9 +52,8 @@ echo "Dotfiles successfully installed."
 echo "Installing VSCode extensions..."
 
 # Check if the `code` command is available
-if ! command -v code &> /dev/null
-then
-    echo "'code' command not found! Please ensure Visual Studio Code is installed and the 'code' CLI is enabled."
+if ! command -v code &> /dev/null && ! command -v code-insiders &> /dev/null; then
+    echo "'code' or 'code-insiders' command not found! Please ensure Visual Studio Code is installed and the 'code' CLI is enabled."
     exit 1
 fi
 
@@ -68,7 +75,11 @@ EXTENSIONS=(
 
 # Install each VSCode extension
 for ext in "${EXTENSIONS[@]}"; do
-    code --install-extension "$ext"
+    if command -v code &> /dev/null; then
+        code --install-extension "$ext"
+    elif command -v code-insiders &> /dev/null; then
+        code-insiders --install-extension "$ext"
+    fi
 done
 
 echo "VSCode extensions successfully installed."
