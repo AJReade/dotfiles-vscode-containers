@@ -123,6 +123,7 @@ alias npmkill="npx npkill"
  fi
 
 #fzf
+. /usr/share/doc/fzf/examples/key-bindings.zsh
 # cmd -r search
 # cmd -t search current working directory (tab key to select mutiple files)
 # ** -tab auto complete search
