@@ -115,7 +115,6 @@ alias sshtolab="/vol/linux/bin/sshtolab"
 alias sshconfig="code ~/.ssh/config"
 alias sshhome="cd ~/.ssh"
 alias npmpackages="npm ls --all --depth=1 --prefix ./assets"
-alias the-garage="Documents/the-garage/"
 alias npmkill="npx npkill"
 
 # ngrok
@@ -131,20 +130,3 @@ alias npmkill="npx npkill"
 export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Elixir
-export ERL_AFLAGS="-kernel shell_history enabled"
-export ELIXIR_EDITOR="code --goto __FILE__:__LINE__"
-alias livebooklink="iex --name test@127.0.0.1 --cookie mycookie -S mix"
-alias sopsedit="SOPS_AGE_KEY_FILE="priv/secrets/sops-key.txt" sops priv/secrets/secrets.enc.yaml"
-alias sopsview="SOPS_AGE_KEY_FILE="priv/secrets/sops-key.txt" sops -d priv/secrets/secrets.enc.yaml"
-# Ash reset migrations
-alias ashresethard="~/regen.sh -m"
-alias ashresetsoft="~/regen.sh"
-# history plugin
-export PATH="/Users/ar/.iex-history:$PATH"
-alias i="run_iex"
-alias is="run_iex -S mix phx.server"
-alias ilb="run_iex --name test@127.0.0.1 --cookie mycookie -S mix"
-alias ipry="run_iex --dbg pry -S mix phx.server"
-source ~/.iex-history/iex-history-shortcuts.sh

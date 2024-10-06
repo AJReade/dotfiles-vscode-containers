@@ -30,4 +30,3 @@ set clipboard=unnamedplus
 
 " Set color scheme (optional, choose your preferred scheme)
 colorscheme desert
-
