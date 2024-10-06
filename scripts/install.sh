@@ -8,7 +8,7 @@ cd "$DOTFILES_DIR"
 # Install necessary packages for Alpine Linux using apk
 echo "Installing necessary packages for Alpine Linux..."
 sudo apt-get update
-sudo apt-get install -y fd-find fzf p7zip-full tree
+sudo apt-get install -y fd-find fzf p7zip-full tree vim
 
 # List of files to symlink
 FILES=(".fzf.zsh" ".gitconfig" ".vimrc" ".zshrc")
