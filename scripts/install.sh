@@ -25,24 +25,24 @@ done
 
 echo "Dotfiles successfully installed."
 
-EXTENSIONS=(
-    eamodio.gitlens
-    ionutvmi.path-autocomplete
-    mhutchie.git-graph
-    mikeylau.typewriter-auto-scroll
-    mrmlnc.vscode-duplicate
-    ms-vsliveshare.vsliveshare
-    oderwat.indent-rainbow
-    rebornix.toggle
-    redhat.vscode-yaml
-    silesky.toggle-boolean
-    streetsidesoftware.code-spell-checker
-    tabnine.tabnine-vscode
-)
+# EXTENSIONS=(
+#     eamodio.gitlens
+#     ionutvmi.path-autocomplete
+#     mhutchie.git-graph
+#     mikeylau.typewriter-auto-scroll
+#     mrmlnc.vscode-duplicate
+#     ms-vsliveshare.vsliveshare
+#     oderwat.indent-rainbow
+#     rebornix.toggle
+#     redhat.vscode-yaml
+#     silesky.toggle-boolean
+#     streetsidesoftware.code-spell-checker
+#     tabnine.tabnine-vscode
+# )
 
-# Install each VSCode extension
-for ext in "${EXTENSIONS[@]}"; do
-    code --install-extension "$ext"
-done
+# # Install each VSCode extension
+# for ext in "${EXTENSIONS[@]}"; do
+#     code --install-extension "$ext"
+# done
 
-echo "VSCode extensions successfully installed."
+# echo "VSCode extensions successfully installed."
